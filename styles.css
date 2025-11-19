@@ -1,0 +1,347 @@
+/* Reset y configuración base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Variables CSS para mantener consistencia */
+:root {
+  --primary-color: #44749d; /* Color principal */
+  --secondary-color: #c6d4e1; /* Color secundario actualizado */
+  --success-color: #155724;
+  --success-bg: #d4edda;
+  --success-border: #c3e6cb;
+  --error-color: #721c24;
+  --error-bg: #f8d7da;
+  --error-border: #f5c6cb;
+  --warning-bg: #fff3cd;
+  --warning-border: #ffc107;
+  --warning-color: #856404;
+  --text-color: #333;
+  --text-secondary: #666;
+  --bg-light: #f8f9fa;
+  --border-color: #ddd;
+  --white: #ffffff; /* Color de fondo */
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --border-radius: 8px;
+  --border-radius-lg: 15px;
+  --transition-speed: 0.3s;
+}
+
+/* Layout principal */
+body {
+  font-family: "Elms Sans", system-ui, -apple-system, sans-serif;
+  background: var(--white);
+  min-height: 100vh;
+  padding: 20px;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  background: var(--white);
+  border-radius: var(--border-radius-lg);
+  box-shadow: 0 20px 60px var(--shadow-color);
+  padding: 30px;
+}
+
+/* Tipografía */
+h1 {
+  text-align: center;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+  font-size: 2em;
+  font-weight: 700;
+}
+
+h2 {
+  color: var(--primary-color);
+  margin-bottom: 15px;
+  font-size: 1.5em;
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 8px;
+}
+
+h3 {
+  color: var(--primary-color);
+  margin-bottom: 15px;
+  font-size: 1.2em;
+}
+
+.subtitle {
+  text-align: center;
+  color: var(--text-secondary);
+  margin-bottom: 30px;
+  font-size: 0.95em;
+}
+
+/* Sección de entrada */
+.input-section {
+  background: var(--bg-light);
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 25px;
+}
+
+.input-group {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra inputs y labels */
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--text-color);
+  font-weight: 600;
+  font-size: 0.95em;
+  text-align: center; /* Centra los textos */
+}
+
+/* Inputs */
+textarea {
+  width: 100%;
+  max-width: 700px; /* Mantiene un ancho legible y centrado */
+  min-height: 120px;
+  padding: 12px;
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-size: 14px;
+  font-family: "Elms Sans", system-ui, sans-serif;
+  resize: vertical;
+  transition: border-color var(--transition-speed);
+  margin: 0 auto; /* Centra el textarea */
+}
+
+textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.input-group input[type="number"] {
+  width: 180px;
+  padding: 10px;
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-size: 14px;
+  transition: border-color var(--transition-speed);
+  margin: 6px 6px; /* separa y centra visualmente */
+}
+
+.input-group input[type="number"]:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+/* Botones */
+button {
+  background: var(--primary-color);
+  color: var(--white);
+  border: none;
+  padding: 12px 30px;
+  border-radius: var(--border-radius);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: block;
+  margin: 0 auto;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Sección de resultados */
+.results-section {
+  margin-top: 30px;
+  display: none;
+}
+
+.results-section.show {
+  display: block;
+  animation: fadeIn 0.5s ease-in;
+}
+
+/* Contenedor de acciones (botones) */
+.actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+/* Variante vertical para apilar botones centrados */
+.actions.vertical {
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Tablas */
+.table-container {
+  overflow-x: auto;
+  margin-bottom: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  background: var(--white);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+th,
+td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+th {
+  background: linear-gradient(
+    135deg,
+    var(--primary-color) 0%,
+    var(--secondary-color) 100%
+  );
+  color: var(--white);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.9em;
+  letter-spacing: 0.5px;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+tbody tr:hover {
+  background: var(--bg-light);
+  transition: background var(--transition-speed);
+}
+
+/* Caja de secuencia */
+.sequence-box {
+  background: var(--bg-light);
+  padding: 15px;
+  border-radius: var(--border-radius);
+  margin-bottom: 20px;
+  font-family: "Elms Sans", system-ui, sans-serif;
+  word-break: break-all;
+  border: 1px solid var(--border-color);
+  font-size: 0.9em;
+  line-height: 1.8;
+}
+
+/* Validación */
+.validation {
+  padding: 20px;
+  border-radius: var(--border-radius);
+  margin-top: 20px;
+  font-weight: 600;
+  text-align: center;
+  font-size: 1.1em;
+  line-height: 1.6;
+}
+
+.validation.pass {
+  background: var(--success-bg);
+  color: var(--success-color);
+  border: 2px solid var(--success-border);
+}
+
+.validation.fail {
+  background: var(--error-bg);
+  color: var(--error-color);
+  border: 2px solid var(--error-border);
+}
+
+/* Tabla de criterios (eliminada) */
+
+/* Notas */
+.note {
+  background: var(--warning-bg);
+  border-left: 4px solid var(--warning-border);
+  padding: 12px;
+  margin-top: 15px;
+  border-radius: 4px;
+  color: var(--warning-color);
+  font-size: 0.95em;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 1.5em;
+  }
+
+  h2 {
+    font-size: 1.2em;
+  }
+
+  table {
+    font-size: 0.9em;
+  }
+
+  th,
+  td {
+    padding: 8px;
+  }
+
+  .input-group input[type="number"] {
+    width: 100%;
+  }
+}
+
+/* Utilidades */
+.text-center {
+  text-align: center;
+}
+
+.mb-1 {
+  margin-bottom: 10px;
+}
+
+.mb-2 {
+  margin-bottom: 20px;
+}
+
+.mt-1 {
+  margin-top: 10px;
+}
+
+.mt-2 {
+  margin-top: 20px;
+}
